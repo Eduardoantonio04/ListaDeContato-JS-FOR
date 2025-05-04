@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSCADOR DE CONTATO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="box-espaçador">
+        <h1 id="buscador-de-contato">LISTA DE CONTATOS</h1>
+    </div>
+
+    <section id="section-search">
+        <div id="box-search">
+            <button onclick="search()">
+                <img src="./lupa_pesquisa-removebg-preview.png" alt="lupa de pesquisa">
+            </button>
+            <input placeholder="Digite o nome do contato">
+        </div>
+    </section>
+
+    <section id="section-presentation">
+        <div id="box-contact">
+            <h1 id="mensagem-contato"> </h1>
+            <h1 id="name-contact"></h1>
+            <h2 id="number-contact"></h2>
+        </div>
+    </section>
+
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background-color: #dddddd;
+    }
+
+
+
+    #box-espaçador {
+        position: relative;
+        top: 30%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #buscador-de-contato {
+        font-family: "PT Serif", serif;
+        font-weight: 700;
+        font-size: 32px;
+    }
+
+
+
+    #section-search {
+        position: relative;
+        width: 60%;
+        top: 40%;
+        margin: 0 auto;
+    }
+
+    #box-search {
+        display: flex;
+    }
+
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    img {
+        height: 40px;
+    }
+
+    input {
+        width: 94%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 10px;
+        background-color: #4e5160;
+        padding-left: 30px;
+        margin-left: 2%;
+    }
+    
+
+
+    #section-presentation {
+        position: relative;
+        width: 60%;
+        top: 50%;
+        margin: 0 auto;
+        background-color: #4e5160;
+        border-radius: 10px;
+    }
+
+    #box-contact {
+        padding-left: 10%;
+        width: 100%;
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 2;
+        color: #fff;
+    }
+
+</style>
+
+
+<script>
+
+    const button = document.querySelector("button")
+    const input = document.querySelector("input")
+    let contatoNull = document.getElementById("mensagem-contato")
+    let h1 = document.getElementById("name-contact")
+    let h2 = document.getElementById("number-contact")
+
+    const contacts = [
+        { name: 'Eduardo', number: '(65) 98765-4321' },
+        { name: 'Daniela', number: '(65) 98765-4321' },
+        { name: 'Deize', number: '(65) 98765-4321' },
+        { name: 'Elias', number: '(65) 98765-4321' },
+        { name: 'Tainá', number: '(65) 98765-4321' }
+    ]
+
+    function search() {
+
+        for (let i = 0; i < contacts.length; i++) {
+
+            if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+                contatoNull.innerHTML = "Contato Encontrado!"
+                h1.innerHTML = `${contacts[i].name}`
+                h2.innerHTML = `${contacts[i].number}`
+
+                break
+            } else {
+                contatoNull.innerHTML = "Contato Não Encontrado!"
+                h1.innerHTML = ""
+                h2.innerHTML = ""
+            }
+        }
+    }
+
+    
+
+</script>
+
+</html>
