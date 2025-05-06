@@ -141,12 +141,28 @@
 
     function search() {
 
-        for (let i = 0; i < contacts.length; i++) {
+        // for (let i = 0; i < contacts.length; i++) {
 
-            if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+        //     if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
+        //         contatoNull.innerHTML = "Contato Encontrado!"
+        //         h1.innerHTML = `${contacts[i].name}`
+        //         h2.innerHTML = `${contacts[i].number}`
+
+        //         break
+        //     } else {
+        //         contatoNull.innerHTML = "Contato Não Encontrado!"
+        //         h1.innerHTML = ""
+        //         h2.innerHTML = ""
+        //     }
+        // }
+
+
+        for (const contact of contacts) {
+            
+            if (input.value.toLowerCase() === contact.name.toLowerCase()) {
                 contatoNull.innerHTML = "Contato Encontrado!"
-                h1.innerHTML = `${contacts[i].name}`
-                h2.innerHTML = `${contacts[i].number}`
+                h1.innerHTML = `${contact.name}`
+                h2.innerHTML = `${contact.number}`
 
                 break
             } else {
@@ -155,6 +171,7 @@
                 h2.innerHTML = ""
             }
         }
+        
     }
 
     
