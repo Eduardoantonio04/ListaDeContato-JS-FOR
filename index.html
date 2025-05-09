@@ -140,7 +140,7 @@
 
     function search() {
         let i = 0
-
+        
         while (i < contacts.length) {
             if (input.value.toLowerCase() === contacts[i].name.toLowerCase()) {
                 contatoNull.innerHTML = "Contato Encontrado!"
@@ -153,8 +153,9 @@
                 h1.innerHTML = ""
                 h2.innerHTML = ""
             }
+            
+            i++
         }
-
 
         // for (let i = 0; i < contacts.length; i++) {
 
